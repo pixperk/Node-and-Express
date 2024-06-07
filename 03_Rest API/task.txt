@@ -1,0 +1,15 @@
+Rest API - JSON DATA
+
+GET/users : Get all users[HTML DOC] - Done
+GET/api/users : JSON format - Done
+
+GET/api/users/<id> : Get the user with the id - Done
+
+POST/api/users : Create new user
+
+PATCH/api/users/1 : Edit user with id 1
+
+DELETE/api/users/1 : Delete user with id 1
+
+DYNAMIC Path Parameters 
+GET /api/users/:id [colon indicates dynamic params]
