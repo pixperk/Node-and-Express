@@ -5,7 +5,17 @@ const app = new express();
 const PORT = 8000;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); //puts data in req.body
+
+app.use((req, res, next) => {
+  fs.appendFile(
+    "log.txt",
+    `${Date.now()} : ${req.method} : ${req.path}\n`,
+    (err, data) => {
+      next();
+    }
+  );
+});
 
 // Routes
 // JSON API
@@ -82,7 +92,7 @@ app
     });
   });
 
-  //POST
+//POST
 app.post("/api/users", (req, res) => {
   const body = req.body;
   const newUser = { id: users.length + 1, ...body };
